@@ -131,7 +131,7 @@ include_once "header.php";
 
         // set map options
         var myOptions = {
-          zoom: 11,
+          zoom: 6,
           //minZoom: 10,
           center: new google.maps.LatLng(<?= $lat_lng ?>),
           mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -168,13 +168,7 @@ include_once "header.php";
         <?php
           $types = Array(
               Array('startup', 'Startups'),
-              Array('accelerator','Accelerators'),
               Array('incubator', 'Incubators'),
-              Array('coworking', 'Coworking'),
-              Array('investor', 'Investors'),
-              Array('service', 'Consulting'),
-              Array('hackerspace', 'Hackerspaces'),
-              Array('event', 'Events'),
               );
           $marker_id = 0;
           foreach($types as $type) {
@@ -423,12 +417,7 @@ include_once "header.php";
         <?php
           $types = Array(
               Array('startup', 'Startups'),
-              Array('accelerator','Accelerators'),
               Array('incubator', 'Incubators'),
-              Array('coworking', 'Coworking'),
-              Array('investor', 'Investors'),
-              Array('service', 'Consulting'),
-              Array('hackerspace', 'Hackerspaces')
               );
           if($show_events == true) {
             $types[] = Array('event', 'Events');
@@ -555,12 +544,7 @@ include_once "header.php";
               <div class="controls">
                 <select name="type" id="add_type" class="input-xlarge">
                   <option value="startup">Startup</option>
-                  <option value="accelerator">Accelerator</option>
                   <option value="incubator">Incubator</option>
-                  <option value="coworking">Coworking</option>
-                  <option value="investor">VC/Angel</option>
-                  <option value="service">Consulting Firm</option>
-                  <option value="hackerspace">Hackerspace</option>
                 </select>
               </div>
             </div>
