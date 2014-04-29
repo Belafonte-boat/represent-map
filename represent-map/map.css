@@ -47,6 +47,9 @@ html, body, #map_canvas
   display: none;
 }
 
+p, h1,h2,h3,h4,h5,h6,span,a,input, button, select, textarea{
+  font-family: 'Open Sans', sans-serif;
+}
 
 
 /* topbar nav */
@@ -148,21 +151,58 @@ html, body, #map_canvas
 {
   text-shadow: none;
 }
-.topbar .search
+.search
 {
-  float: left;
+padding: 5px 10px;  
   line-height: 60px;
 }
-.topbar .search input
+.search input
 {
+
   margin-top: 8px;
-  width: 160px;
-  font-size: 8pt;
-  padding-left: 26px;
-  background-image: url("./images/icon-search.png");
-  background-position: 8px center;
-  background-repeat: no-repeat;
+  width: 192px;
+  font-size: 14px;
+  padding-left: 34px;
+  font-weight: bold;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  
+  background-color: #69C5A7;
+
 }
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+*::-webkit-input-placeholder {
+    color: white;
+}    
+*:-moz-placeholder {
+    /* FF 4-18 */
+    color: white;
+}
+*::-moz-placeholder {
+    /* FF 19+ */
+    color: white;
+}    
+*:-ms-input-placeholder {
+    /* IE 10+ */
+    color: white;
+}
+input, textarea, select, .uneditable-input {
+
+color: white;
+
+border: none;
+-webkit-border-radius: 0;
+-moz-border-radius: 0;
+border-radius: 0;
+}
+
+
 
 
 /* marker list, right-side gutter */
@@ -177,21 +217,22 @@ html, body, #map_canvas
   height: 100%;
   background-color: #fff;
   width: 250px;
+  background-color: #38b994;
 }
 .menu .blurb,
 .menu .attribution
 {
-  color: #999;
+  color: #fff;
   font-size: 8pt;
   font-weight: normal;
   line-height: 1.3em;
   padding: 12px 10px 0px 10px;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+
 }
 .menu .blurb a,
 .menu .attribution a
 {
-  color: #ccc;
+  color: #DCEBE5;
 }
 .menu .blurb a:hover,
 .menu .attribution a:hover
@@ -216,16 +257,58 @@ html, body, #map_canvas
   right: 0;
   top: 0;
   height: 100%;
-  border-left: 1px solid #ccc;
-  border-top: 1px solid #ccc;
+
   overflow-y: scroll;
-  background-color: #333;
+  
 }
+
+.typeahead {
+margin-top: 2px;
+-webkit-border-radius: 0px;
+-moz-border-radius: 0px;
+border-radius: 0px;
+width: 162px;
+font-size: 14px;
+padding-left: 34px;
+padding-right: 34px;
+font-weight: bold;
+padding-top: 15px;
+padding-bottom: 15px;
+background-color: #69C5A7;
+}
+
+.dropdown-menu {
+
+border: none;
+/* border: 1px solid rgba(0, 0, 0, 0.2); */
+-webkit-border-radius: 0;
+-moz-border-radius: 0;
+border-radius: 0;
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+
+}
+
+.dropdown-menu li  a{
+   overflow: hidden;
+ 
+  text-overflow: ellipsis;
+  width: 132px;
+  color: #fff;
+}
+
+.dropdown-menu li > a:hover, .dropdown-menu .active > a, .dropdown-menu .active > a:hover {
+color: #ffffff;
+text-decoration: none;
+background-color: #27A27E;
+}
+
 .typeahead.dropdown-menu
 {
-  max-width: 170px;
+  
   overflow: hidden;
-  border: 1px solid rgba(0,0,0,.4);
+  background-color: #69C5A7;
 }
 .typeahead.dropdown-menu li
 {
@@ -235,7 +318,7 @@ html, body, #map_canvas
 {
   font-size: 11pt;
   color: #eee;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  
   overflow: hidden;
 }
 .list .category img
@@ -244,22 +327,25 @@ html, body, #map_canvas
 }
 .list .category span
 {
-  opacity: .5;
+  opacity: .8;
+  font-weight: normal;
 }
 .list .category .category_item
 {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+
 }
 .list .category .category_item:hover
 {
-  background-color: rgba(255,255,255,.03);
+  background-color: #27A27E;
 }
 .list .category .category_info
 {
   display: block;
   overflow: hidden;
   padding: 3px 6px;
-  color: #eee;
+  color: #fff;
+  font-weight: bold;
+
 }
 .list .category .category_info:hover 
 {
@@ -301,7 +387,7 @@ html, body, #map_canvas
 }
 .list .list-items li
 {
-  border-top: 1px solid rgba(255,255,255,.03);
+  
 }
 .list .list-items li a
 {
@@ -309,21 +395,21 @@ html, body, #map_canvas
   font-size: 8pt;
   padding: 5px 10px;
   outline: none;
-  color: #ccc;
+  color: #d9ece4;
   font-weight: normal;
   line-height: 1.4em; 
 }
 .list .list-items li a:hover
 {
-  background-color: rgba(255,255,255,.03);
+  
   text-decoration: none;
   outline: none;
-  color: #fff;
+  background-color: #27A27E;
 }
 .list .list-items li a:active
 {
   color: #fff;
-  background-color: #444;
+  background-color: #27A27E;
 }
 
 

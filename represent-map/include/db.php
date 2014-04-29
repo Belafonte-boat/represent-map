@@ -89,7 +89,7 @@ $show_events = false;
 $head_html = "";
 
 // The <title></title> tag
-$title_tag = "map of the Los Angeles startup community";
+$title_tag = "map of the Italian startup community";
 
 // The latitude & longitude to center the initial map
 $lat_lng = "42.8333,12.8333";
@@ -104,7 +104,7 @@ $twitter = array(
 );
 
 // Short blurb about this site (visible to visitors)
-$blurb = "This map was made to connect and promote the Los Angeles tech startup community.  Let's put LA on the map!";
+$blurb = "";
 
 // attribution (must leave link intact, per our license)
 $attribution = "

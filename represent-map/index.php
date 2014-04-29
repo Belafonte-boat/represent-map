@@ -18,7 +18,7 @@ include_once "header.php";
     <title><?= $title_tag ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta charset="UTF-8">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,700,300' rel='stylesheet' type='text/css'>
     <link href="./bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="./bootstrap/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="map.css?nocache=289671982568" type="text/css" />
@@ -28,7 +28,14 @@ include_once "header.php";
     <script src="./bootstrap/js/bootstrap-typeahead.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="./scripts/label.js"></script>
-
+    <script type="text/javascript">
+      var script = '<script type="text/javascript" src="scripts/markerclusterer';
+      if (document.location.search.indexOf('compiled') !== -1) {
+        script += '_packed';
+      }
+      script += '.js"><' + '/script>';
+      document.write(script);
+    </script>
     <script type="text/javascript">
       var map;
       var infowindow = null;
@@ -207,6 +214,7 @@ include_once "header.php";
           }
         ?>
 
+        
         // add markers
         jQuery.each(markers, function(i, val) {
           infowindow = new google.maps.InfoWindow({
@@ -255,7 +263,7 @@ include_once "header.php";
               }
             });
           }
-
+          
           // format marker URI for display and linking
           var markerURI = val[5];
           if(markerURI.substr(0,7) != "http://") {
@@ -302,6 +310,10 @@ include_once "header.php";
             $("#search").val("");
           }
         });
+
+        console.log(map,gmarkers)
+      var mcOptions = {gridSize: 50, maxZoom: 5};
+      var markerCluster = new MarkerClusterer(map, gmarkers);
       }
 
 
@@ -374,23 +386,13 @@ include_once "header.php";
     <div id="map_canvas"></div>
 
     <!-- topbar -->
-    <div class="topbar" id="topbar">
-      <div class="wrapper">
-        <div class="right">
-          
-        </div>
-        <div class="left">
-          
-          
-          <div class="search">
-            <input type="text" name="search" id="search" placeholder="Search for companies..." data-provide="typeahead" autocomplete="off" />
-          </div>
-        </div>
-      </div>
-    </div>
+   
 
     <!-- right-side gutter -->
     <div class="menu" id="menu">
+      <div class="search">
+            <input type="text" name="search" id="search" placeholder="Search" data-provide="typeahead" autocomplete="off" />
+          </div>
       <ul class="list" id="list">
         <?php
           $types = Array(
@@ -430,7 +432,7 @@ include_once "header.php";
             ";
           }
         ?>
-        <li class="blurb"><?= $blurb ?></li>
+        
         <li class="attribution">
           <!-- per our license, you may not remove this line -->
           <?=$attribution?>
